@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :posts
-  resources :users, only: [:show, :index]
+  root to: "posts#index"
+
 
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
   end
+  resources :posts
+  resources :users, only: [:show, :index]
 end
