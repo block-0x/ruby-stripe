@@ -10,11 +10,11 @@ class PostsController < ApplicationController
   def edit;end
 
   def new
-    @post = current_user.post.new
+    @post = current_user.posts.new
   end
 
   def create
-    @post = current_user.post.new(post_params)
+    @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save

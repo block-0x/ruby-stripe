@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_054443) do
+ActiveRecord::Schema.define(version: 2021_08_10_062816) do
+
+  create_table "pay_infos", charset: "utf8mb4", force: :cascade do |t|
+    t.string "email"
+    t.string "description"
+    t.string "currency"
+    t.integer "customer_id"
+    t.time "payment_date"
+    t.string "payment_status"
+    t.string "uuid"
+    t.integer "charge_id"
+    t.integer "stripe_commission"
+    t.integer "amount_after_subtract_commission"
+    t.string "receipt_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"

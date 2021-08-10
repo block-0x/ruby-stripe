@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: "posts#index"
 
-
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'
@@ -13,5 +12,6 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   resources :posts
+  resources :pay_infos, only: [:create]
   resources :users, only: [:show, :index]
 end
