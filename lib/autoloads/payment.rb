@@ -1,6 +1,7 @@
 class Payment
   def self.register_customer(card_token)
-    puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    puts card_token
+    Stripe.api_key = ENV['STRIPE_PUBLISHABLE_KEY']
     Stripe::Customer.create({
     source: card_token,
     })
